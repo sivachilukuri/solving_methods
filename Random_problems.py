@@ -36,7 +36,7 @@ nums = [1,3,2,5,4,102,101,103,105,106,104]
 k = longest_consecutive1(nums)
 print(k)
 
-----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 #Longest Substring without repeating
 def longest_unique(s:str)->int:
     seen = set()
@@ -49,7 +49,7 @@ def longest_unique(s:str)->int:
         best = max(best, right - left + 1)
     return best
 
-----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # contains duplicate
 def contain_duplicate(nums):
     hashset = set()
@@ -66,7 +66,7 @@ def contain_duplicate(nums):
             return True
     return False
 
------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Valid Anagram
 def isAnagram(s:str, t:str)->bool:
     if len(s) != len(t):
@@ -89,3 +89,60 @@ def twosum(nums, target):
             return [h[diff], i ]
         h[nums[i]] = i
     return 
+
+# Fib
+def fib(n,memo={}):
+    if n in memo:
+        return memo[n]
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    memo[n] = fib(n-1,memo) + fib(n-2,memo)
+    return memo[n]
+print(fib(10))
+
+def fib1(n):
+    if n <= 1:
+        return n
+    a,b = 0,1
+    for _ in range(2,n+1):
+        a,b = b, a+b
+    return b
+print(fib1(10))
+
+# String compression
+def compress_string(s):
+    if not s: return ""
+    res = []
+    counter = 1
+    for i in range(1,len(s)):
+        if s[i]==s[i-1]:
+            counter += 1
+        else:
+            res.append(str(counter)+s[i-1])
+            counter = 1
+    res.append(str(counter)+s[i-1])
+    return "".join(res)
+#execution
+print(compress_string("aaabbbccddd"))
+
+# -------------------------------------------------------
+# Reverse Integer
+def reverse_integer(x):
+    if x < 0:
+        sign = -1
+        x = x * sign
+    else:
+        sign = 1
+    res = 0
+    n = x
+    while n != 0:
+        rem = n % 10
+        res = res*10 + rem
+        n = n // 10
+    return res * sign
+
+print(reverse_integer(1234))
+
+# -----------------------------

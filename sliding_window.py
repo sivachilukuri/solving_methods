@@ -10,7 +10,7 @@ def MaxiSumSubarray(arr:list[int], k:int)->int:
 m = [2,1,3,8,9,7,6,5,4]
 obj_maxi = MaxiSumSubarray(m,3)
 print(obj_maxi)
---------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # smallest_subarray
 def smallest_subarray(arr, s):
     window_sum = 0
