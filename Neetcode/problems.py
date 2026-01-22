@@ -192,18 +192,18 @@ print(m.top())
 print(m.get_min())
 
 # Daily Temperatures (LeetCode #739)
-# def daily_temperatures(temp):
-#     n = len(temp)
-#     answer = []*n
-#     stack = []
-#     for i in range(len(temp)):
-#         curr_temp = temp[i]
-#         while stack and curr_temp > temp[stack[-1]]:
-#             prev_index = stack.pop()
-#             answer[prev_index] = i - prev_index
-#         stack.append(i)
-#     return answer
+def daily_temperatures(temp):
+    n = len(temp)
+    answer = [0]*n
+    stack = []
+    for i in range(len(temp)):
+        curr_temp = temp[i]
+        while stack and curr_temp > temp[stack[-1]]:
+            prev_index = stack.pop()
+            answer[prev_index] = i - prev_index
+        stack.append(i)
+    return answer
 
 # execution
-# p = daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73])
-# print(p)
+p = daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73])
+print(p)
